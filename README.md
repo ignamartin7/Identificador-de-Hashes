@@ -3,10 +3,6 @@
 Identifica el tipo probable de un hash a partir de **prefijo, longitud y
 charset** — sin red, sin dependencias pesadas, un solo archivo Python.
 
-> Basado en el mismo estilo de proyecto que `http-headers-scanner`
-> (foundations tier): lógica pura y testeable separada de la
-> presentación en terminal, con `rich` para la salida con colores.
-
 ## Qué hace
 
 - Analiza una cadena y muestra sus tres señales crudas: **longitud**,
