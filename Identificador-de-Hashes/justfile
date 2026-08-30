@@ -1,0 +1,30 @@
+# justfile — comandos de conveniencia (`just` para ver la lista)
+set positional-arguments
+
+default:
+    @just --list --unsorted
+
+# Crea un entorno virtual e instala todo (runtime + dev)
+setup:
+    python3 -m venv .venv
+    .venv/bin/pip install --upgrade pip
+    .venv/bin/pip install -e ".[dev]"
+    @echo "✓ Listo. Prueba: just run -- 5f4dcc3b5aa765d61d8327deb882cf99"
+
+# Ejecuta la suite de tests
+test:
+    .venv/bin/pytest
+
+# Identifica un hash — pasa el valor después de `--`
+# Ejemplo: just run -- '$2b$12$OZTNj7sIp2O8SEFvymeuH.7aMDpgQHThee7FCMstQvSBOxQcPf/qS'
+[no-exit-message]
+run *args:
+    .venv/bin/python hash_identifier.py "$@"
+
+# Muestra el catálogo completo de firmas conocidas
+list:
+    .venv/bin/python hash_identifier.py --list
+
+# Borra el entorno virtual y los cachés
+clean:
+    rm -rf .venv __pycache__ .pytest_cache
