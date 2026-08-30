@@ -1,4 +1,4 @@
-# hash-identifier
+# Identificador de Hashes
 
 Identifica el tipo probable de un hash a partir de **prefijo, longitud y
 charset** — sin red, sin dependencias pesadas, un solo archivo Python.
